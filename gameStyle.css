@@ -1,0 +1,31 @@
+.grid, .guess{
+    width: 200px;
+    height: 200px;
+    border: 5px solid black;
+    background-color:red;
+    display: inline-block;
+}
+
+.grid:hover{
+    transition: 0.4s;
+    background-color: white;
+}
+
+/*
+.guess {
+    transition: 0.4s;
+    background-color: black;
+}
+*/
+
+.hit {
+    background: url('skull.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.miss {
+    background: url('splash.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}

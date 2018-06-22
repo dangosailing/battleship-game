@@ -7,49 +7,47 @@ var location5 = 5;
 var location6 = 6;
 
 //ship coordinates
-var shipLocation1 = Math.random() * 4;
+var shipLocation1 = Math.floor(Math.random() * 4) + 1;
 var shipLocation2 = shipLocation1 + 1;
 var shipLocation3 = shipLocation2 + 1;
 
-//hit and miss counter
+//hit, miss, guess and win condition 
 var hit = 0;
 var miss = 0;
-var isHit1 = false;
-var isHit2 = false;
-var isHit3 = false;
+var guess;
+var isSunk = false;
 
-//game loop
-while (isHit1 == false && isHit2 == false && isHit3 == false)
-{
-   var userInput = window.prompt("Enter the location you wish to bombard (1-6)!");
+//connecting ship coordinates to game grid
+console.log(shipLocation1);
+console.log(shipLocation2);
+console.log(shipLocation3);
+document.getElementById(shipLocation1).className="grid ship";
+document.getElementById(shipLocation2).className="grid ship";
+document.getElementById(shipLocation3).className="grid ship";
 
-switch (userInput)
-{
-    case shipLocation1: 
-    {
-    isHit1 = true;
-    hit++;
-    break;
-}
-case shipLocation2: 
-{
-    isHit2 = true;
-    hit++;
-    break;
-}
-case shipLocation3: 
-{
-    isHit3 = true;
-    hit++;
-    break;
-    }
-default:
-{
-miss++;
-window.alert("Missed! You have missed " + miss +" times!");
-break;
-}
-} 
-}
 
-window.alert("You won!");
+var isHit = false;
+
+function gridSelection()
+{
+   var guess = event.target;
+   guess.classList.add("guess");
+  
+   
+        if(guess.classList.contains("guess") && guess.classList.contains("ship"))
+        {
+            hit++;
+             alert("ship hit!");
+             guess.classList.add("hit");
+        } else 
+        {
+            alert("You missed! Try again");
+            guess.classList.add("miss");
+            
+        }
+    
+}
+    
+
+
+
